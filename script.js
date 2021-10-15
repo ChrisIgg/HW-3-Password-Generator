@@ -21,13 +21,96 @@ function generatePassword() {
   var numbers = confirm("You want number in ya pw?");
   var lowercases = confirm("ya want lowercase letter in your pw?");
   var uppercases = confirm("ya want upper cases in your pw too?");
-  var specials = confirm("specials too? or nah");
+  var special = confirm("specials too? or nah");
   var minimumCount = 0;
   var minimumNumbers = "";
   var minimumLowerCases = "";
   var minimumUpperCases = "";
   var minimumSpecialCharacters = "";
 }
+
+let lowerArrayString = "abcdefghijklmnopqrstuvwxyz";
+
+var numberArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var lowerArray = lowerArrayString.split("");
+var upperArray = String.prototype.toUpperCase.apply(lowerArrayString).split("");
+var specialArray = ["!", "@", "#", "$", "%", "^", "&", "*"];
+
+console.log(numberArray);
+console.log(lowerArray);
+console.log(upperArray);
+console.log(specialArray);
+
+let upperArray = true;
+
+// get user choice
+
+// function getUserNumber() {
+//  var numbers = true;
+//  return numberArray;
+// }
+
+// let totalUserArray = [];
+
+// totalUserArray.push(getUserNumber, getUserSpecial, getUserUpper, getUserLower);
+
+// function getUserNumber() {
+//   if (numbers) {
+//     return numberArray;
+//   } else {
+//     console.log(No Number)
+//   }
+// }
+// function getUserSpecials() {
+//   if (special) {
+//     return specialArray;
+//   }
+// }
+// function getUserUpper() {
+//   if (uppercases) {
+//     return upperArray
+//   }
+// }
+// function getUserLower() {
+//   if (lowercases) {
+//     return lowerArray
+//   }
+// }
+
+// // !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+// let specialString = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~";
+// const specialSplit = specialString.split("");
+
+// console.log(specialString);
+// console.log(specialSplit);
+
+// // if approves of numbers then...
+// if (numbers);
+// {
+//   var numberArray =
+// }
+
+// // i want a list of numbers
+// var numberArray = numbers();
+
+// take all those numbers, and add them to another list
+
+// add all arrays to one source
+const totalArray = numberArray.concat(lowerArray, upperArray, specialArray);
+
+// var functionArray = [
+//   function getNumbers() {
+//     return String.fromCharCode(Math.floor(Math.random() * 10 + 48));
+//   },
+//   function getLowerCases() {
+//     return String.fromCharCode(Math.floor(Math.random() * 26 + 97));
+//   },
+//   function getUpperCases() {
+//     return String.fromCharCode(Math.floor(Math.random() * 26 + 65));
+//   },
+//   function getSpecials() {
+//     return String.fromCharCode(Math.floor(Math.random() * special.length));
+// }
 
 // function generatePassword() {
 //   var passwordLength = prompt(
