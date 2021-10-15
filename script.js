@@ -18,9 +18,17 @@ var generateBtn;
 
 function generatePassword() {
   var passwordLength = prompt("pick a pw length, 8-128");
+  var numbers = confirm("You want number in ya pw?");
+  var lowercases = confirm("ya want lowercase letter in your pw?");
+  var uppercases = confirm("ya want upper cases in your pw too?");
+  var specials = confirm("specials too? or nah");
+  var minimumCount = 0;
+  var minimumNumbers = "";
+  var minimumLowerCases = "";
+  var minimumUpperCases = "";
+  var minimumSpecialCharacters = "";
 }
 
-console.log(generatePassword);
 // function generatePassword() {
 //   var passwordLength = prompt(
 //     "Please Enter How Long You Want Your Password to Be (Between 8 and 128 characters)"
