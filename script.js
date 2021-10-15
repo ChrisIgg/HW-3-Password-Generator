@@ -80,6 +80,9 @@ console.log(finalPool);
 
 console.log(finalPool);
 
+
+// this.length
+
 // console.log(numberArray);
 // console.log(lowerArray);
 // console.log(upperArray);
