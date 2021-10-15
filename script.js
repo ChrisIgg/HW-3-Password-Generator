@@ -19,7 +19,7 @@ var generateBtn;
 function generatePassword() {
   var passwordLength = prompt("pick a pw length, 8-128");
   var numbers = confirm("You want number in ya pw?");
-  var lowercases = confirm("ya want lowercase letter in your pw?");
+  var lowercases = confirm("ya want lowercase letters in your pw?");
   var uppercases = confirm("ya want upper cases in your pw too?");
   var special = confirm("specials too? or nah");
   var minimumCount = 0;
@@ -36,17 +36,65 @@ var lowerArray = lowerArrayString.split("");
 var upperArray = String.prototype.toUpperCase.apply(lowerArrayString).split("");
 var specialArray = ["!", "@", "#", "$", "%", "^", "&", "*"];
 
-console.log(numberArray);
-console.log(lowerArray);
-console.log(upperArray);
-console.log(specialArray);
+const passwordGroup = [];
 
-let upperArray = true;
+const totalArray = numberArray.concat(lowerArray, upperArray, specialArray);
+
+var passwordLength = prompt("pick a pw length, 8-128");
+var numbers = confirm("You want number in ya pw?");
+var lowercases = confirm("ya want lowercase letters in your pw?");
+var uppercases = confirm("ya want upper cases in your pw too?");
+var special = confirm("specials too? or nah");
+
+function generatePassword() {
+  if (numbers) {
+    var groupNumber = passwordGroup.concat(numberArray);
+  } else {
+    console.log("Didn't want numbers");
+  }
+  if (lowercases) {
+    var groupLower = passwordGroup.concat(lowerArray);
+  } else {
+    console.log("Didn't want lower cases");
+  }
+  if (uppercases) {
+    var groupUpper = passwordGroup.concat(upperArray);
+  } else {
+    console.log("Didn't want upper cases");
+  }
+  if (special) {
+    var groupSpecial = passwordGroup.concat(specialArray);
+  } else {
+    console.log("Didn't want special cases");
+  }
+}
+
+const passwordAfterGroup = [];
+const finalPool = passwordAfterGroup.concat(
+  groupLower,
+  groupNumber,
+  groupUpper,
+  groupSpecial
+);
+console.log(finalPool);
+
+console.log(finalPool);
+
+// console.log(numberArray);
+// console.log(lowerArray);
+// console.log(upperArray);
+// console.log(specialArray);
+
+// // add all arrays to one source
 
 // get user choice
 
 // function getUserNumber() {
-//  var numbers = true;
+//   if (numbers);
+//   return numberArray;
+// }
+
+// //  var numbers = true;
 //  return numberArray;
 // }
 
@@ -93,10 +141,7 @@ let upperArray = true;
 // // i want a list of numbers
 // var numberArray = numbers();
 
-// take all those numbers, and add them to another list
-
-// add all arrays to one source
-const totalArray = numberArray.concat(lowerArray, upperArray, specialArray);
+// // take all those numbers, and add them to another list
 
 // var functionArray = [
 //   function getNumbers() {
