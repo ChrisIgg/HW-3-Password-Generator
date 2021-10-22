@@ -1,33 +1,83 @@
-// Assignment Code
+// dependencies
 var generateBtn = document.querySelector("#generate");
+
 // returns the first "ELEMENT" (generate?) within the document that matches the specified selector
 // line 28 in html
 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  var passwordTextBox = document.querySelector("#password");
 
-  passwordText.value = password;
+  // return random Password;
+  passwordTextBox.value = password;
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-var generateBtn;
+// var generateBtn;
+function verifyLength(pw) {
+  // assume pw is integer
+  // if pw < 8 || pw > 128 {
+  //   pwNew = prompt("this is invalid, please enter again");
+  //   return verifyLength(pw)
+  // } else {
+  //   return pw;
+  // }
+}
+var passwordLength = [];
+var passwordGroup = [];
+
+function getPasswordLength() {
+  var passwordLength = parseInt(prompt("pick a pw length, 8-128"));
+  if (passwordLength < 8 || passwordLength > 128) {
+    alert("Your password has to be between 8 and 128 characters");
+    return getPasswordLength();
+  }
+  return passwordLength;
+}
 
 function generatePassword() {
-  var passwordLength = prompt("pick a pw length, 8-128");
+  // var inputIsCorrect = false;
+  // while(!inputIsCorrect) {
+  //   if (pw < 8) ... {
+  //     pw = prompt("this was incorrect, re enter");
+  //   } else {
+  //     inputIsCorrect = true;
+  //   }
+  // }
+
+  //     (VALIDATION)
+  // if passwordLengh is less than 8 OR pwlLength is greater than 128
+  //    then prompt user to redo input
+  var randomPassword = "";
+  var passwordLength = getPasswordLength();
+  console.log(passwordLength);
   var numbers = confirm("You want number in ya pw?");
   var lowercases = confirm("ya want lowercase letters in your pw?");
   var uppercases = confirm("ya want upper cases in your pw too?");
   var special = confirm("specials too? or nah");
-  var minimumCount = 0;
-  var minimumNumbers = "";
-  var minimumLowerCases = "";
-  var minimumUpperCases = "";
-  var minimumSpecialCharacters = "";
+
+  var passwordArray = compileUserArrays(
+    numbers,
+    lowercases,
+    uppercases,
+    special
+  );
+  console.log(passwordArray);
+  // randomly select characters from the pool until i have as many as the user wants
+  // add each one to the random password
+  for (var i = 0; i < passwordLength; i++) {
+    var randomIndex = Math.floor(Math.random() * passwordArray.length);
+    var randomCharacter = passwordArray[randomIndex];
+    console.log(randomCharacter);
+    randomPassword += randomCharacter;
+  }
+  console.log(randomPassword);
+  return randomPassword;
 }
+// 2:59
 
 let lowerArrayString = "abcdefghijklmnopqrstuvwxyz";
 
@@ -36,50 +86,58 @@ var lowerArray = lowerArrayString.split("");
 var upperArray = String.prototype.toUpperCase.apply(lowerArrayString).split("");
 var specialArray = ["!", "@", "#", "$", "%", "^", "&", "*"];
 
-const passwordGroup = [];
+// const totalArray = numberArray.concat(lowerArray, upperArray, specialArray);
 
-const totalArray = numberArray.concat(lowerArray, upperArray, specialArray);
-
-var passwordLength = prompt("pick a pw length, 8-128");
-var numbers = confirm("You want number in ya pw?");
-var lowercases = confirm("ya want lowercase letters in your pw?");
-var uppercases = confirm("ya want upper cases in your pw too?");
-var special = confirm("specials too? or nah");
-
-function generatePassword() {
+// needs to be called from generate password function
+function compileUserArrays(numbers, lowercases, uppercases, special) {
+  var passwordGroup = [];
   if (numbers) {
-    var groupNumber = passwordGroup.concat(numberArray);
+    passwordGroup = passwordGroup.concat(numberArray);
   } else {
     console.log("Didn't want numbers");
   }
   if (lowercases) {
-    var groupLower = passwordGroup.concat(lowerArray);
+    passwordGroup = passwordGroup.concat(lowerArray);
   } else {
     console.log("Didn't want lower cases");
   }
   if (uppercases) {
-    var groupUpper = passwordGroup.concat(upperArray);
+    passwordGroup = passwordGroup.concat(upperArray);
   } else {
     console.log("Didn't want upper cases");
   }
   if (special) {
-    var groupSpecial = passwordGroup.concat(specialArray);
+    passwordGroup = passwordGroup.concat(specialArray);
   } else {
     console.log("Didn't want special cases");
   }
+  console.log(passwordGroup);
+  return passwordGroup;
 }
 
-const passwordAfterGroup = [];
-const finalPool = passwordAfterGroup.concat(
-  groupLower,
-  groupNumber,
-  groupUpper,
-  groupSpecial
-);
-console.log(finalPool);
+// return "randomPasswordGenerated";
 
-console.log(finalPool);
+// randomPasswordGenerated = array = passwordGroup;
 
+// return from array:live solution from mini project 28-unit 3
+
+// const passwordAfterGroup = [];
+// const finalPool = passwordAfterGroup.concat(
+//   groupLower,
+//   groupNumber,
+//   groupUpper,
+//   groupSpecial
+// );
+// console.log(finalPool);
+
+// console.log(finalPool);
+
+// function getComputerChoice() {
+//   var randomNumber = Math.floor(Math.random() * options.length);
+//   return options[randomNumber];
+
+// }
+// for loop creating a random number on each function
 
 // this.length
 
