@@ -30,7 +30,9 @@ var passwordLength = [];
 var passwordGroup = [];
 
 function getPasswordLength() {
-  var passwordLength = parseInt(prompt("pick a pw length, 8-128"));
+  var passwordLength = parseInt(
+    prompt("Please pick a password character length, any number between 8-128")
+  );
   if (passwordLength < 8 || passwordLength > 128) {
     alert("Your password has to be between 8 and 128 characters");
     return getPasswordLength();
@@ -54,10 +56,12 @@ function generatePassword() {
   var randomPassword = "";
   var passwordLength = getPasswordLength();
   console.log(passwordLength);
-  var numbers = confirm("You want number in ya pw?");
-  var lowercases = confirm("ya want lowercase letters in your pw?");
-  var uppercases = confirm("ya want upper cases in your pw too?");
-  var special = confirm("specials too? or nah");
+  var numbers = confirm("Do you want numbers in your password?");
+  var lowercases = confirm("Do you want lowercases letters in your password?");
+  var uppercases = confirm("Do you want upper cases in your password too?");
+  var special = confirm(
+    "And as for special characters, would you like to include that type?"
+  );
 
   var passwordArray = compileUserArrays(
     numbers,
